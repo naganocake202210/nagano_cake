@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     get "/about" => "homes#about", as: "about"
 
     resources :customers, only: [:unsubscribe, :show, :edit]
-    get "/costomer" => "customers#show", as: "customers/mypage"
+    get "costomer/:id" => "customers#show", as: "customers/my_page"
 
     resources :items, only: [:index, :show]
 

@@ -24,6 +24,9 @@
             <ul class="navbar-nav ml-auto">
 
            <% if customer_signed_in? %>
+
+           　<p class="position-static">ようこそ<%= current_customer.last_name %>さん！</p>
+
               <li class="nav-item">
                 <%= link_to 'マイページ', customer_path(current_customer.id), class: 'nav-link text-dark border rounded mr-5' %>
               </li>
@@ -38,10 +41,6 @@
 
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark border rounded' %>
-              </li>
-
-               <li class="nav-item">
-                <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-dark border rounded' %>
               </li>
 
          <% elsif admin_signed_in? %>
