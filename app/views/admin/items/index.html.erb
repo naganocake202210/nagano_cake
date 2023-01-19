@@ -1,0 +1,34 @@
+<div class=
+
+<h2><span class="bg-secondary">商品一覧</span>　　<a class="btn-outline-secondary btn-lg rounded-circle p-0" href="/admin/items/new" style="width:2rem;height:2rem;">＋</a></h2>
+
+  	<table>
+  	  <thead>
+        <tr>
+
+         <th>ID</th>
+         <th>商品名</th>
+         <th>税抜価格</th>
+         <th>ジャンル</th>
+         <th>ステータス</th>
+        </tr>
+      </thead>
+
+      <% @items.each do |item| %>
+        <tbody>
+
+        <tr>
+
+
+        <%= link_to admin_item_path(item.id) do %>
+         <td><%= item.id %></td>
+         <td><%= item.name %><% end %></td>
+         <td><%= item.price %></td>
+         <td><%= item.genre.name %></td>
+         <td><%= item.display_is_active %></td>
+
+
+        </tr>
+        </tbody>
+     <% end %>
+     </table>
