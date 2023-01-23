@@ -35,8 +35,12 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get "/about" => "homes#about", as: "about"
 
-    resources :customers, only: [:unsubscribe, :show, :edit]
-    get "costomer/:id" => "customers#show", as: "customers/my_page"
+    get "customers/my_page" => "customers#show", as: "my_page"
+    get "customers/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
+    patch "customers/withdraw" => "customers#withdraw", as: "withdraw"
+    resources :customers, only: [:edit, :update]
+
+
 
     resources :items, only: [:index, :show]
 

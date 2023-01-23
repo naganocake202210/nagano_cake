@@ -1,7 +1,7 @@
 <div class="container">
 
 <h4>マイページ</h4>
-<p>登録情報</p>
+<p>登録情報</p> <%= link_to "編集する", edit_customer_path(@customer.id) %>
 
  <table>
   <tr>
@@ -32,6 +32,11 @@
   <tr>
     <th>メールアドレス</th>
     <td><td><%= @customer.email %></td>
+  </tr>
+
+   <tr>
+    <th>ステータス</th>
+    <td><td><%= @customer.is_deleted %></td>
   </tr>
 
  </table>

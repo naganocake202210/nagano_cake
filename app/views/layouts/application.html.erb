@@ -28,7 +28,7 @@
            　<p class="position-static">ようこそ<%= current_customer.last_name %>さん！</p>
 
               <li class="nav-item">
-                <%= link_to 'マイページ', customer_path(current_customer.id), class: 'nav-link text-dark border rounded mr-5' %>
+                <%= link_to 'マイページ', my_page_path, class: 'nav-link text-dark border rounded mr-5' %>
               </li>
 
               <li class="nav-item">
