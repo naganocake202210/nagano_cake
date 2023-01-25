@@ -28,25 +28,30 @@ Rails.application.routes.draw do
   end
 
 
-  namespace :public do
-    get 'cart_items/index'
-  end
+
   scope module: :public do
     root to: 'homes#top'
     get "/about" => "homes#about", as: "about"
 
     get "customers/my_page" => "customers#show", as: "my_page"
+    get "customers/information/edit" => "customers#edit", as: "edit_customer"
+    patch "customers/information" => "customers#update", as: "customer"
     get "customers/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
     patch "customers/withdraw" => "customers#withdraw", as: "withdraw"
-    resources :customers, only: [:edit, :update]
 
-
+    resources :customers, only: [:update]
 
     resources :items, only: [:index, :show]
+    
+    delete "cart_items/destroy_all" => "cart_items#destroy_all", as: "destroy_all"
+    resources :cart_items, only: [:index, :update, :destroy, :create]
 
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    resources :orders, only: [:new, :create, :index, :show]
+    get 'orders/confirm'
+    get 'orders/complete'
+
+  end
 
   end
 
 
-end

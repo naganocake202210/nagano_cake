@@ -10,7 +10,7 @@
     <% end %>
 
     <%= item.name %>
-    <%= (item.price * 1.1).floor %>円
+    <td><%= item.with_tax_price%></td>円
     </td>
 
   </tr>
