@@ -37,7 +37,7 @@ class Public::OrdersController < ApplicationController
       order_detail.manufacture_status = 0
       order_detail.save!
     end
-    render complete_path
+    redirect_to complete_path
   end
 
   def index
