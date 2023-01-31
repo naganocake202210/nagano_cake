@@ -35,7 +35,8 @@ class Public::OrdersController < ApplicationController
       order_detail.price = cart_item.subtotal
       order_detail.amount = cart_item.amount
       order_detail.manufacture_status = 0
-      order_detail.save!
+      order_detail.save
+      CartItem.destroy_all
     end
     redirect_to complete_path
   end
