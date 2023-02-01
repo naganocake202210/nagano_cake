@@ -32,7 +32,7 @@ class Public::OrdersController < ApplicationController
       order_detail = OrderDetail.new
       order_detail.item_id = cart_item.item_id
       order_detail.order_id = @order.id
-      order_detail.price = cart_item.subtotal
+      order_detail.price = cart_item.item.with_tax_price
       order_detail.amount = cart_item.amount
       order_detail.manufacture_status = 0
       order_detail.save
@@ -42,9 +42,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.all
+
   end
 
   def show
+    @order = Order.find(params[:id])
+    
+
   end
 
   private
