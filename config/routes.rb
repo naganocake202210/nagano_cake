@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # 顧客用def top end
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
 
     resources :items, only: [:new, :create, :index, :show, :update, :edit]
+
+    resources :orders, only: [:show, :update]
 
   end
 

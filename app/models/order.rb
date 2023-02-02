@@ -3,8 +3,8 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
 
   enum payment_method: { credit_card: 0, transfer: 1 }
-  
-  
+
+
 
   def total_payment
     total = 0
@@ -12,7 +12,11 @@ class Order < ApplicationRecord
      total = total + order_detail.price * order_detail.amount
     end
     return total
-end
+  end
 
   
+
 end
+
+
+
