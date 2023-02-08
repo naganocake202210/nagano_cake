@@ -1,47 +1,60 @@
-<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
+<div class="container">
+ <div class="row">
+  <div class= "h5 bg-secondary mt-5"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細
+  </div>
+ </div>
+
+ <div class="row">
+
+
+   <table class="col-lg-11 offset-lg-1 mt-5">
+
+    <tr>
+     <th class="col-lg-3">会員ID</th>
+     <td><%= @customer.id %></td>
+    </tr>
+
+    <tr>
+     <th class="col-lg-3">氏名</th>
+     <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+    </tr>
+
+    <tr>
+     <th class="col-lg-3">フリガナ</th>
+     <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+    </tr>
+
+    <tr>
+     <th class="col-lg-3">郵便番号</th>
+     <td><%= @customer.postal_code %></td>
+    </tr>
+
+    <tr>
+     <th class="col-lg-3">住所</th>
+     <td><%= @customer.address %></td>
+    </tr>
+
+    <tr>
+     <th class="col-lg-3">電話番号</th>
+     <td><%= @customer.telephone_number %></td>
+    </tr>
+
+    <tr>
+     <th class="col-lg-3">メールアドレス</th>
+     <td><%= @customer.email %></td>
+    </tr>
+
+    <tr>
+     <td></td>
+     <td><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: 'btn btn-success mt-5' %></td>
+    </tr>
+   </table>
+
+
+   </div>
+
+</div>
 
 
 
-	<table>
-
-        <tr>
-           <th>会員ID</th>
-           <td><%= @customer.id %></td>
-        </tr>
-
-        <tr>
-           <th>氏名</th>
-           <td><%= @customer.last_name %> <%= @customer.first_name %></td>
-        </tr>
-
-        <tr>
-         　<th>フリガナ</th>
-           <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
-        </tr>
-
-        <tr>
-           <th>郵便番号</th>
-           <td><%= @customer.postal_code %></td>
-        </tr>
-
-        <tr>
-           <th>住所</th>
-           <td><%= @customer.address %></td>
-        </tr>
-
-        <tr>
-           <th>メールアドレス</th>
-           <td><%= @customer.email %></td>
-        </tr>
-
-        <tr>
-         <th>会員ステータス</th>
-         <td></td>
-        </tr>
-
-
-     </table>
-
-     <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-     <%= link_to "注文履歴一覧を見る" %>
 

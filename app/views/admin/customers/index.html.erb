@@ -1,28 +1,40 @@
-<h1>会員一覧</h1>
+<div class="container">
+  <div class="row">
+  <div class= "h5 bg-secondary mt-5">会員一覧</div>
+ </div>
 
-  <table>
-  	  <thead>
-        <tr>
-          <th>ID</th>
-          <th>氏名</th>
-          <th>メールアドレス</th>
-          <th>ステータス</th>
-        </tr>
-     </thead>
+ <div class="row">
+  <table class="col-lg-8 offset-lg-2">
+    <thead class="bg-secondary text-center">
+      <tr class="row">
+          <th class="col-lg-2">ID</th>
+          <th class="col-lg-5">氏名</th>
+          <th class="col-lg-5">メールアドレス</th>
+      </tr>
+    </thead>
+
+    <tbody class="text-center">
       <% @customers.each do |customer| %>
-     <tbody>
-
-        <tr>
-          <td><%= customer.id %></td>
-          <td><%= link_to admin_customer_path(customer.id) do %>
+      <tr class="row">
+          <td class="col-lg-2"><%= customer.id %></td>
+          <td class="col-lg-5"><%= link_to admin_customer_path(customer.id) do %>
               <%= customer.last_name %><%= customer.first_name %>
-              <% end %>
-          </td>
-          <td><%= customer.email %></td>
-          <td>ステータス</td>
-        </tr>
+              <% end %></td>
+          <td class="col-lg-5"><%= customer.email %></td>
+      </tr>
+        <% end %>
+    </tbody>
 
-     </tbody>
-      <% end %>
+    </table>
+    <div>
+      <%= paginate @customers %></div>
+</div>
 
-  </table>
+  </div>
+  <div class="col-lg-2"></div>
+ </div>
+</div>
+</div>
+
+
+

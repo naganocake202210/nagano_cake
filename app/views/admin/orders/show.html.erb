@@ -1,65 +1,92 @@
-<h1>注文履歴詳細</h1>
-<table>
-    <tr>
-      <th>購入者</th>
-      <td><%= @order.customer.last_name + @order.customer.first_name %></td>
-    </tr>
+<div class="container">
+  <div class="row">
+    <div class= "h5 bg-secondary mt-5">注文履歴詳細</div>
+  </div>
 
-    <tr>
-      <th>注文日</th>
-      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-    </tr>
+  <div class="row">
 
-    <tr>
-      <th>発送先</th>
-      <td><%= @order.postal_code %><%= @order.address %><br>
+
+      <table class="col-lg-12">
+        <tr>
+          <th>購入者</th>
+          <td><%= @order.customer.last_name + @order.customer.first_name %></td>
+        </tr>
+
+        <tr>
+          <th>注文日</th>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+
+        <tr>
+          <th>発送先</th>
+          <td><%= @order.postal_code %><%= @order.address %><br>
           <%= @order.name %></td>
-    </tr>
+        </tr>
 
-    <tr>
-      <th>支払方法</th>
-      <td><%= @order.payment_method_i18n %></td>
-    </tr>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
 
-</table>
+      </table>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-    </tr>
-  </thead>
+    <div class="row mt-5">
 
-  <tcody>
-    <% total = 0 %>
-    <% @order.order_details.each do |order_detail| %>
-    <tr>
-      <td><%= order_detail.item.name %></td>
-      <td><%= order_detail.item.with_tax_price %></td>
-      <td><%= order_detail.amount %></td>
-      <td><%= order_detail.item.with_tax_price * order_detail.amount %></td>
-    </tr>
-    <% total += order_detail.item.with_tax_price * order_detail.amount %>
-
-    <% end %>
-  </tcody>
-</table>
+      <table  class="col-lg-8">
+       <thead class="bg-secondary">
+        <tr class="row">
+         <th class="col-lg-4">商品名</th>
+         <th class="col-lg-3">単価（税込）</th>
+         <th class="col-lg-3">数量</th>
+         <th class="col-lg-2">小計</th>
+        </tr>
+       </thead>
 
 
-<table>
-  <tr>
-    <th>商品合計</th>
-    <td><%= total %></td>
-  </tr>
-  <tr>
-    <th>送料</th>
-    <td><%= @postage %></td>
-  </tr>
-  <tr>
-    <th>請求金額合計</th>
-    <td><%= total + @postage %></td>
-  </tr>
-</table>
+       <tbody>
+        <% total = 0 %>
+        <% @order.order_details.each do |order_detail| %>
+        <tr class="row">
+         <td class="col-lg-4"><%= order_detail.item.name %></td>
+         <td class="col-lg-3"><%= converting_to_jpy(order_detail.item.with_tax_price) %></td>
+         <td class="col-lg-3"><%= order_detail.amount %></td>
+         <td class="col-lg-2"><%= converting_to_jpy(order_detail.item.with_tax_price * order_detail.amount) %></td>
+        </tr>
+        <% total += order_detail.item.with_tax_price * order_detail.amount %>
+
+        <% end %>
+       </tbody>
+      </table>
+
+
+
+      <table  class="col-lg-3 offset-lg-1">
+
+       <tr>
+        <th>商品合計</th>
+        <td><%= converting_to_jpy(total) %></td>
+       </tr>
+       <tr>
+        <th>送料</th>
+        <td><%= converting_to_jpy(@postage) %></td>
+       </tr>
+       <tr>
+        <th>請求金額合計</th>
+        <td><%= converting_to_jpy(total + @postage) %></td>
+       </tr>
+      </table>
+     </div>
+    </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+

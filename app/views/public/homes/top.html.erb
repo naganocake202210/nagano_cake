@@ -1,11 +1,44 @@
 <div class= "container">
     <div class= "row">
 
-    <p class="px-3 mx-auto text-left mt-5">
-    ようこそ長野CAKEへ！<br>
-    このサイトは、ケーキ販売のECサイトになります。<br>
- 　 会員でない方も商品の閲覧はできますが、<br>
-　  購入には会員登録が必要になります。</p>
+        <div class="col-lg-4"></div>
 
+
+        <div class="col-lg-8">
+
+
+
+           <div class="px-3 mx-auto text-left mt-5">
+           ようこそ長野CAKEへ！<br>
+           このサイトは、ケーキ販売のECサイトになります。<br>
+           会員でない方も商品の閲覧はできますが、<br>
+           購入には会員登録が必要になります。</div>
+
+
+           <p class="h4 mt-5">新着商品</p>
+            <div class= "row">
+                <% @items.each do |item| %>
+                <div class="col-lg-3">
+                    <%= link_to item_path(item.id) do %>
+                    <%= image_tag item.get_image(150,150) %><% end %>
+                    <div><%= item.name %></div>
+                    <div><%= converting_to_jpy(item.price) %></div>
+
+                </div>
+
+                <% end %>
+                <div class= "text-right mt-5">
+                <%= link_to "すべての商品をみる", items_path %>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+           </div>
 </div>
 </div>

@@ -2,66 +2,102 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
 
-<h2>新規会員登録</h2>
+<div class= "h4 m-4">新規会員登録</div>
 
-
-<%= form_with model: @customer, url: customer_registration_path do |f| %>
+<table>
+  <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class= "form-group">
-    <p>名前</p>
-      <label for>(性)</label>
-            <%= f.text_field :last_name, class: "form-control" %>
-      <label for>(名)</label>
-            <%= f.text_field :first_name, class: "form-control" %>
-  </div>
+  <tr>
+    <td>名前</td>
+    <td>(性)</td>
+    <td><%= f.text_field :last_name, class: "form-control" %></td>
+    <td>(名)</td>
+    <td><%= f.text_field :first_name, class: "form-control" %></td>
+  </tr>
 
-   <div class= "form-group">
-    <p>フリガナ</p>
-      <label for>(セイ)</label>
-            <%= f.text_field :last_name_kana, class: "form-control" %>
-      <label for>(メイ)</label>
-            <%= f.text_field :first_name_kana, class: "form-control" %>
-  </div>
+　<tr>
+  　<td>フリガナ</td>
+    <td>(セイ)</td>
+    <td><%= f.text_field :last_name_kana, class: "form-control" %></td>
+    <td>(メイ)</td>
+    <td><%= f.text_field :first_name_kana, class: "form-control" %></td>
+  </tr>
 
-  <div class= "form-group">
-    <label for>メールアドレス</label>
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
+  <tr>
+  　<td>メールアドレス</td>
+    <td></td>
+    <td><%= f.email_field :email, class: "form-control" %></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-  <div class= "form-group">
-    <label for>郵便番号（ハイフンなし）</label>
-    <%= f.text_field :postal_code, class: "form-control" %>
-  </div>
+  <tr>
+  　<td>郵便番号（ハイフンなし）</td>
+    <td></td>
+    <td><%= f.text_field :postal_code, class: "form-control" %></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-  <div class= "form-group">
-    <label for>住所</label>
-    <%= f.text_field :address, class: "form-control" %>
-  </div>
+  <tr>
+  　<td>住所</td>
+    <td></td>
+    <td colspan="3"><%= f.text_field :address, class: "form-control" %></td>
 
-  <div class= "form-group">
-    <label for>電話番号</label>
-    <%= f.text_field :telephone_number, class: "form-control" %>
 
-  <div class= "form-group">
-    <label for>パスワード</label>
-    <% if @minimum_password_length %>
+  </tr>
+
+  <tr>
+  　<td>電話番号</td>
+    <td></td>
+    <td><%= f.text_field :telephone_number, class: "form-control" %></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+  　<td>パスワード
+  　<% if @minimum_password_length %>
     <em>（<%= @minimum_password_length %> 文字以上）</em>
-    <% end %><br />
-    <%= f.password_field :password, class: "form-control" %>
-  </div>
+    <% end %><br /></td>
+    <td></td>
+    <td><%= f.password_field :password, class: "form-control" %></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-  <div class= "form-group">
-    <label for>パスワード（確認用）</label>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
-  </div>
+  <tr>
+  　<td>パスワード（確認用）</td>
+    <td></td>
+    <td><%= f.password_field :password_confirmation, class: "form-control" %></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
+  <tr>
+  　<td></td>
+    <td></td>
+    <td><%= f.submit "新規登録" %></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-<%= render "public/shared/links" %>
+  <% end %>
+</table>
+
+<div class= "h4 m-4">すでに登録済みの方</div>
+
+<div><%= link_to "こちら",  customer_session_path %>からログインしてください。</div>
+
+
+
+
+
+
+
+
+
 
 </div>
 </div>

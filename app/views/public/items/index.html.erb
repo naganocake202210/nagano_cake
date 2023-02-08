@@ -1,19 +1,24 @@
-<h1>商品一覧</h1>
+<div class= "container">
+    <div class= "row">
+        <div class="col-lg-4"></div>
 
 
-<% @items.each do |item| %>
-<table>
-  <tr>
-    <td>
-    <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_image %>
-    <% end %>
+        <div class="col-lg-8">
 
-    <%= item.name %>
-    <td><%= item.with_tax_price%></td>円
-    </td>
+        <p class="h4 mt-5">商品一覧</p>
+        <div class= "row">
+            <% @items.each do |item| %>
+            <div class="col-lg-3">
+               <%= link_to item_path(item.id) do %>
+               <%= image_tag item.get_image(150,150) %>
+               <% end %>
+               <div><%= item.name %></div>
+               <div><%= converting_to_jpy(item.with_tax_price) %></div>
 
-  </tr>
-</table>
+            </div>
+            <% end %>
+        </div>
 
-<% end %>
+       </div>
+    </div>
+</div>
