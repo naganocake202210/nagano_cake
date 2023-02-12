@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <div class= "h5 bg-secondary mt-5">新規会員登録</div>
+  </div>
 
-<div class= "h4 m-4">新規会員登録</div>
+ <div class="row">
 
-<table>
   <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
+<table class="col-lg-12">
   <tr>
     <td>名前</td>
     <td>(性)</td>
@@ -16,8 +17,8 @@
     <td><%= f.text_field :first_name, class: "form-control" %></td>
   </tr>
 
-　<tr>
-  　<td>フリガナ</td>
+ <tr>
+   <td>フリガナ</td>
     <td>(セイ)</td>
     <td><%= f.text_field :last_name_kana, class: "form-control" %></td>
     <td>(メイ)</td>
@@ -25,7 +26,7 @@
   </tr>
 
   <tr>
-  　<td>メールアドレス</td>
+   <td>メールアドレス</td>
     <td></td>
     <td><%= f.email_field :email, class: "form-control" %></td>
     <td></td>
@@ -33,7 +34,7 @@
   </tr>
 
   <tr>
-  　<td>郵便番号（ハイフンなし）</td>
+   <td>郵便番号（ハイフンなし）</td>
     <td></td>
     <td><%= f.text_field :postal_code, class: "form-control" %></td>
     <td></td>
@@ -41,7 +42,7 @@
   </tr>
 
   <tr>
-  　<td>住所</td>
+   <td>住所</td>
     <td></td>
     <td colspan="3"><%= f.text_field :address, class: "form-control" %></td>
 
@@ -49,7 +50,7 @@
   </tr>
 
   <tr>
-  　<td>電話番号</td>
+   <td>電話番号</td>
     <td></td>
     <td><%= f.text_field :telephone_number, class: "form-control" %></td>
     <td></td>
@@ -57,8 +58,8 @@
   </tr>
 
   <tr>
-  　<td>パスワード
-  　<% if @minimum_password_length %>
+   <td>パスワード
+   <% if @minimum_password_length %>
     <em>（<%= @minimum_password_length %> 文字以上）</em>
     <% end %><br /></td>
     <td></td>
@@ -68,7 +69,7 @@
   </tr>
 
   <tr>
-  　<td>パスワード（確認用）</td>
+   <td>パスワード（確認用）</td>
     <td></td>
     <td><%= f.password_field :password_confirmation, class: "form-control" %></td>
     <td></td>
@@ -76,29 +77,35 @@
   </tr>
 
   <tr>
-  　<td></td>
+   <td></td>
     <td></td>
-    <td><%= f.submit "新規登録" %></td>
+    <td><%= f.submit "新規登録", class: 'btn btn-success mt-4 size=>"20"' %></td>
     <td></td>
     <td></td>
   </tr>
 
   <% end %>
 </table>
+</div>
 
-<div class= "h4 m-4">すでに登録済みの方</div>
+<div class="row">
 
-<div><%= link_to "こちら",  customer_session_path %>からログインしてください。</div>
+<div class= "h5 bg-secondary mt-5">すでに登録済みの方</div>
+</div>
 
-
-
-
-
-
-
-
-
+<div class="row">
+<div><%= link_to "こちら",  customer_session_path %> からログインしてください。</div>
 
 </div>
+
 </div>
-</div>
+
+
+
+
+
+
+
+
+
+
